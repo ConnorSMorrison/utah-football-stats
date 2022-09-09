@@ -1,15 +1,16 @@
 from flask import Flask, render_template
 from datetime import date
 import cfbd
-from dotenv import dotenv_values
+import os
 
-env_values = dotenv_values(".env")
+API_KEY = os.environ.get("API_KEY")
+API_KEY_PREFIX = os.environ.get("API_KEY_PREFIX")
 
 app = Flask(__name__)
 
 configuration = cfbd.Configuration()
-configuration.api_key["Authorization"] = env_values["API_KEY"]
-configuration.api_key_prefix["Authorization"] = env_values["API_KEY_PREFIX"]
+configuration.api_key["Authorization"] = API_KEY
+configuration.api_key_prefix["Authorization"] = API_KEY_PREFIX
 
 teams_instance = cfbd.TeamsApi(cfbd.ApiClient(configuration))
 games_instance = cfbd.GamesApi(cfbd.ApiClient(configuration))
@@ -71,3 +72,9 @@ def rankings():
 			rankings = rankings[i]["ranks"]
 			break
 	return render_template("rankings.html", rankings=rankings)
+
+def main():
+	app.run()
+
+if __name__ == "__main__":
+	main()
