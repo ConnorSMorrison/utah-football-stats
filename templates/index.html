@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="{{url_for('static', filename='css/navbar.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='css/global.css')}}">
+        <link rel="icon" type="image/x-icon" href="{{url_for('static', filename='images/favicon.ico')}}">
+        <style>
+            .logos {
+                display: grid;
+                grid-template-columns: auto auto auto;
+                justify-content: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="navbar-div">
+            <a href="{{url_for('index')}}" class="button-a-tag button"><span class="button-text">Home</span></a>
+            <div class="dropdown">
+                <button class="dropbtn"><span class="dropdown-button-text">Games</span></button>
+                <div class="dropdown-content">
+                    <a href="{{url_for('byu_games')}}">BYU</a>
+                    <a href="{{url_for('uofu_games')}}">Utah</a>
+                    <a href="{{url_for('utah_state_games')}}">Utah State</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn"><span class="dropdown-button-text">Rosters</span></button>
+                <div class="dropdown-content">
+                    <a href="{{url_for('byu_roster')}}">BYU</a>
+                    <a href="{{url_for('uofu_roster')}}">Utah</a>
+                    <a href="{{url_for('utah_state_roster')}}">Utah State</a>
+                </div>
+            </div>
+            <a href="{{url_for('rankings')}}" class="button-a-tag button"><span class="button-text">Rankings</span></a>
+        </div>
+        
+        <br><br><br>
+        
+        <div class="logos">
+            <img src="{{url_for('static', filename='images/BYU_Cougars_logo.svg.png')}}" width="250px">
+            <img src="{{url_for('static', filename='images/1200px-Utah_Utes_logo.svg.png')}}" width="250px">
+            <img src="{{url_for('static', filename='images/Utah_State_Aggies_logo.svg.png')}}" width="250px">
+        </div>
+        
+        <p>This site was created for me to look at the stats of the main three teams in Utah I like to watch the games of - BYU, U of U, and Utah State.</p>
+        <p>Check out the code at <a href="https://github.com/ConnorSMorrison/utah-football-stats/">this link</a>.</p>
+        <p>Lots of inspiration goes to <a href="https://plaintextsports.com">plaintextsports</a> for the colors and stuff.</p>
+    </body>
+</html>

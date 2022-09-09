@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="{{url_for('static', filename='css/navbar.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='css/global.css')}}">
+        <link rel="icon" type="image/x-icon" href="{{url_for('static', filename='images/favicon.ico')}}">
+        <style>
+            .rankings-table {
+                position: relative;
+                width: 35%;                
+                margin: auto;
+                margin-bottom: 30px;
+            }
+            
+            tr {
+                padding-bottom: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="navbar-div">
+            <a href="{{url_for('index')}}" class="button-a-tag button"><span class="button-text">Home</span></a>
+            <div class="dropdown">
+                <button class="dropbtn"><span class="dropdown-button-text">Games</span></button>
+                <div class="dropdown-content">
+                    <a href="{{url_for('byu_games')}}">BYU</a>
+                    <a href="{{url_for('uofu_games')}}">Utah</a>
+                    <a href="{{url_for('utah_state_games')}}">Utah State</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn"><span class="dropdown-button-text">Rosters</span></button>
+                <div class="dropdown-content">
+                    <a href="{{url_for('byu_roster')}}">BYU</a>
+                    <a href="{{url_for('uofu_roster')}}">Utah</a>
+                    <a href="{{url_for('utah_state_roster')}}">Utah State</a>
+                </div>
+            </div>
+            <a href="{{url_for('rankings')}}" class="button-a-tag button"><span class="button-text">Rankings</span></a>
+        </div>
+        
+        <br><br><br>
+        
+        <table class="rankings-table">
+            <tr>
+                <th>Rank</th>
+                <th>School</th>
+                <th>Points</th>
+            </tr>
+            {% for rank in rankings %}
+                <tr>
+                    <td>{{rank["rank"]}}</td>
+                    {% if rank["school"] == "Utah" or rank["school"] == "BYU" or rank["school"] == "Utah State" %}
+                        <td style="font-weight: bold;">{{rank["school"]}}</td>
+                    {% else %}
+                        <td>{{rank["school"]}}</td>
+                    {% endif %}
+                    <td>{{rank["points"]}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>

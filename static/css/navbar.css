@@ -1,0 +1,61 @@
+.navbar-div {
+  width: 105%;
+  height: 50px;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  margin: -10px -20px 25px -10px;
+  top: 0;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar-div .button {
+  font-size: 1.5em;
+  height: 50px;
+  text-decoration: none;
+  color: white;
+}
+
+.navbar-div .button:hover {
+  color: gray;
+}
+
+.navbar-div .button .button-text {
+  position: relative;
+  top: 15px;
+}
+
+.dropbtn {
+  background-color: #101010;
+  COLOR: WHITE;
+  font-size: 1.5em;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  top: 0;
+}
+
+.dropdown-content {
+  display: none;
+  min-width: 25%;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  position: relative;
+  color: white;
+  text-decoration: none;
+  display: block;
+  top: 10px;
+}
+
+.dropdown-button-text {
+  position: relative;
+  top: 10px;
+}
+
+.dropdown-content a:hover { color: gray; }
+.dropdown:hover .dropdown-content { display: block; }
+.dropdown:hover .dropbtn { color: gray; }
